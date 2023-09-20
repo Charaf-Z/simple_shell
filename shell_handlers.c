@@ -86,7 +86,7 @@ void find_cmd(info_t *info)
 		info->line_count++, info->linecount_flag = 0;
 
 	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delimiter(info->arg[i], " \t\n"))
+		if (!is_delimiter(info->arg[i], " \t\n\a\r"))
 			k++;
 	if (!k)
 		return;
