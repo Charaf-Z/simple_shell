@@ -73,3 +73,23 @@ int is_delimiter(const char character, const char *delimiter)
 			return (1);
 	return (0);
 }
+
+/**
+ * *str_cpy - copies the string pointer to by src.
+ * @src: source string
+ * @dest: destination to copy the string
+ * Return: string
+ */
+char *str_cpy(char *dest, const char *src)
+{
+	int i = -1;
+
+	if (dest == src || src == NULL)
+		return (dest);
+	do {
+		i++;
+		dest[i] = src[i];
+	} while (src[i] != '\0');
+	dest[i] = 0;
+	return (dest);
+}

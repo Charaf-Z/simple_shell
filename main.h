@@ -127,6 +127,7 @@ char *dup_str(const char *, int, int);
 char **str_to_word(const char *, char *);
 int num_words(const char *, const char *);
 int is_delimiter(const char, const char *);
+char *str_cpy(char *, const char *);
 
 /* utils functions */
 int interactive(info_t *);

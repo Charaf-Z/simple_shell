@@ -101,10 +101,9 @@ char **list_to_strings(list_t *head)
 			free(strs);
 			return (NULL);
 		}
-		str = str_n_cpy(str, node->str, str_length(node->str));
+		str = str_cpy(str, node->str);
 		strs[i] = str;
 	}
-	free(str);
 	strs[i] = NULL;
 	return (strs);
 }
