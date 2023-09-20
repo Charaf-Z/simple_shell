@@ -20,10 +20,11 @@ char **str_to_word(const char *string, char *delimiter)
 	str = malloc((nbr_words + 1) * sizeof(char *));
 	if (!str)
 		return (NULL);
-	for (i = 0, j = 0, k = 0; i < nbr_words; i++)
+	for (i = 0, j = 0; i < nbr_words; i++)
 	{
 		while (is_delimiter(string[j], delimiter))
 			j++;
+		k = 0;
 		while (!is_delimiter(string[j + k], delimiter) && string[j + k] != '\0')
 			k++;
 		str[i] = malloc((k + 1) * sizeof(char));
