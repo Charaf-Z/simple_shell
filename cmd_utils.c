@@ -64,7 +64,10 @@ char *find_path(info_t *info, char *path_str, char *cmd)
 			if (is_cmd(info, path))
 				return (path);
 			if (!path_str[i])
+			{
+				free(path);
 				break;
+			}
 			curr_pos = i + 1;
 			free(path);
 		}
