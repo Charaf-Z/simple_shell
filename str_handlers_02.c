@@ -67,3 +67,19 @@ int str_rpl(char **old, char *new)
 	*old = new;
 	return (1);
 }
+
+/**
+ * str_cat - Concatenate two strings.
+ * @dest: The destination string.
+ * @src: The source string to be appended.
+ * Return: A pointer to the destination string.
+ */
+char *str_cat(char *dest, const char *src)
+{
+	int i = 0, j;
+
+	i = str_length(dest);
+	for (j = 0; src[j]; j++)
+		dest[i++] = src[j];
+	return (dest);
+}

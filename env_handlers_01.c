@@ -34,14 +34,15 @@ int set_env(info_t *info, char *var, char *value)
 	list_t *node;
 	char *equal_sign_pos;
 
-	if (!var || !value)
+	if (!var || !value || var[0] == '\0' || value[0] == '\0')
 		return (0);
 	env_var = malloc(str_length(var) + str_length(value) + 2);
 	if (!env_var)
 		return (1);
-	str_n_cpy(env_var, var, str_length(var));
-	str_n_cat(env_var, "=", str_length("="));
-	str_n_cat(env_var, value, str_length(value));
+	_memset((void *)env_var, 0, str_length(var) + str_length(value) + 2);
+	str_cpy(env_var, var);
+	str_cat(env_var, "=");
+	str_cat(env_var, value);
 	for (node = info->env; node; node = node->next)
 	{
 		equal_sign_pos = start_with(node->str, var);

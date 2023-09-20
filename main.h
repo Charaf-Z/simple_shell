@@ -118,6 +118,7 @@ char *start_with(char *, const char *);
 char *str_dup(const char *);
 int str_cmp(const char *, const char *);
 int str_rpl(char **, char *);
+char *str_cat(char *, const char *);
 
 char *str_n_cpy(char *, const char *, size_t);
 char *str_n_cat(char *, const char *, int);
