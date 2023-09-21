@@ -105,7 +105,6 @@ void find_cmd(info_t *info)
 			print_err(info, "Not Found??\n");
 		}
 	}
-	free(path);
 }
 
 /**
