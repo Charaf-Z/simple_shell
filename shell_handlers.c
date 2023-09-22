@@ -86,13 +86,18 @@ void find_cmd(info_t *info)
 		info->line_count++, info->linecount_flag = 0;
 
 	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delimiter(info->arg[i], " \t\n\a\r"))
+		if (!is_delimiter(info->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
 	path = find_path(info, get_env(info, "PATH="), info->argv[0]);
 	if (path)
-		info->path = path, fork_cmd(info);
+	{
+		info->path = path;
+		fork_cmd(info);
+		if (!start_with(path, "./"))
+			free(path);
+	}
 	else
 	{
 		if ((interactive(info) || get_env(info, "PATH=")

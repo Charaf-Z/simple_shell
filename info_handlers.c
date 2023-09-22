@@ -24,7 +24,7 @@ void set_info(info_t *info, char **av)
 	info->file_name = av[0];
 	if (info->arg)
 	{
-		info->argv = str_to_word(info->arg, " \t");
+		info->argv = str_to_word(info->arg, "\t\a\r\n ");
 		if (!info->argv)
 		{
 			info->argv = malloc(sizeof(char *) * 2);
