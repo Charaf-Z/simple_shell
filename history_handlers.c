@@ -12,9 +12,9 @@ int read_history(info_t *info)
 	struct stat file_stat;
 	char *file_content = NULL, *file_path = get_history_file(info);
 
-	_memset((void *)file_path, 0, sizeof(char *));
 	if (!file_path)
 		return (0);
+	_memset((void *)file_path, 0, sizeof(char *));
 	fd = open(file_path, O_RDONLY);
 	free(file_path);
 	if (fd == -1)
@@ -63,9 +63,9 @@ char *get_history_file(info_t *info)
 		return (NULL);
 	history_path = malloc(sizeof(char) *
 			(str_length(dir) + str_length(HIST_FILE) + 2));
-	_memset((void *)history_path, 0, sizeof(char *));
 	if (!history_path)
 		return (NULL);
+	_memset((void *)history_path, 0, sizeof(char *));
 	history_path[0] = '\0';
 	str_n_cpy(history_path, dir, str_length(dir));
 	str_n_cat(history_path, "/", str_length("/"));
@@ -116,9 +116,9 @@ int write_history(info_t *info)
 	char *file_path = get_history_file(info);
 	list_t *node = NULL;
 
-	_memset((void *)file_path, 0, sizeof(char *));
 	if (!file_path)
 		return (-1);
+	_memset((void *)file_path, 0, sizeof(char *));
 	fd = open(file_path, O_CREAT | O_TRUNC | O_RDWR, 0644);
 	free(file_path);
 	if (fd == -1)
