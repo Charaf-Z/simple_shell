@@ -107,7 +107,7 @@ void find_cmd(info_t *info)
 		else if (*(info->arg) != '\n')
 		{
 			info->status = 127;
-			print_err(info, "Not Found??\n");
+			print_err(info, "Not Found\n");
 		}
 	}
 }
@@ -129,7 +129,7 @@ void fork_cmd(info_t *info)
 	if (child_pid == 0)
 	{
 		if (access(info->path, X_OK) != 0)
-			print_err(info, "Permission denied!\n"), exit(126);
+			print_err(info, "Permission denied\n"), exit(126);
 		if (execve(info->path, info->argv, get_environ(info)) == -1)
 		{
 			free_info(info, 1);
